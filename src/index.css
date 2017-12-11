@@ -4,3 +4,11 @@ body {
   font-family: Helvetica, sans-serif;
   font-size: 10px;
 }
+
+#root {
+  height: 100%;
+}
+
+html, body {
+  height: 100%
+}

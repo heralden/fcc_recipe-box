@@ -1,8 +1,13 @@
 .Recipe-view {
-  width: calc(60% - 2em);
+  width: 60%;
+  height: 100%;
   float: right;
-  background-color: lightgray;
-  border: 0.1em solid lightgray;
-  border-radius: 0.5em;
+  border-left: 0.1em solid lightgray;
   box-sizing: border-box;
+  font-size: 1.4em;
+  text-align: left;
+}
+
+tbody tr td {
+  padding: 0.4em;
 }

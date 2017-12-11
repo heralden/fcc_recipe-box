@@ -3,7 +3,6 @@ import './RecipeIndex.css';
 
 const RecipeIndex = ({ names }) => (
   <div className="Recipe-index">
-    <h3>Index</h3>
 
     <ul>
       {names.map((e, i) => 
@@ -12,6 +11,8 @@ const RecipeIndex = ({ names }) => (
           key={i}
         />
       )}
+
+      <AddRecipe />
     </ul>
 
   </div>
@@ -20,6 +21,12 @@ const RecipeIndex = ({ names }) => (
 const RecipeItem = ({ name }) => (
   <li>
     {name}
+  </li>
+);
+
+const AddRecipe = (props) => (
+  <li className="Add-recipe">
+    Add recipe
   </li>
 );
 

@@ -3,8 +3,6 @@ import './RecipeView.css';
 
 const RecipeView = ({ recipe }) => (
   <div className="Recipe-view">
-    <h3>View</h3>
-
     <table>
       <tbody>
         {recipe.ingredients.map((e, i) => 
@@ -22,9 +20,10 @@ const RecipeView = ({ recipe }) => (
 
 const IngredientItem = ({ name, amount, metric }) => (
   <tr>
+    <td className="Metric">
+      {amount} {metric}
+    </td>
     <td>{name}</td>
-    <td>{amount}</td>
-    <td>{metric}</td>
   </tr>
 );
 

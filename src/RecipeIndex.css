@@ -1,8 +1,31 @@
 .Recipe-index {
   width: 40%;
   float: left;
-  background-color: lightslategray;
-  border: 0.1em solid lightgray;
-  border-radius: 0.5em;
-  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  width: calc(100% - 2em);
+  height: 4em;
+  background-color: hsl(210, 25%, 97%);
+  font-size: 1.5em;
+  line-height: 4em;
+  text-align: left;
+  float: left;
+  display: block;
+  padding-left: 2em;
+}
+
+li::first-letter {
+  text-transform: uppercase;
+}
+
+.Add-recipe {
+  background-color: hsl(150, 35%, 95%);
+  font-weight: bold;
 }
