@@ -1,0 +1,8 @@
+.Recipe-index {
+  width: 40%;
+  float: left;
+  background-color: lightslategray;
+  border: 0.1em solid lightgray;
+  border-radius: 0.5em;
+  box-sizing: border-box;
+}

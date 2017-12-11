@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import RecipeIndex from './RecipeIndex';
+import RecipeView from './RecipeView';
+import { sample } from './data';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      recipes: sample,
+      current: 0
+    };
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <RecipeIndex 
+          names={this.state.recipes.map(
+            e => e.name
+          )}
+        />
+
+        <RecipeView 
+          recipe={this.state.recipes.filter(
+            e => e.id === this.state.current
+          )[0]}
+        />
+
       </div>
     );
   }
