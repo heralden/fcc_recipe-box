@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import RecipeIndex from './RecipeIndex';
-import RecipeView from './RecipeView';
 import { sample } from './data';
+import Recipe from './Recipe';
 
 class App extends Component {
   constructor(props) {
@@ -17,17 +16,11 @@ class App extends Component {
     return (
       <div className="App">
 
-        <RecipeIndex 
-          names={this.state.recipes.map(
-            e => e.name
-          )}
-        />
+        {this.state.recipes.map((e, i) =>
+          <Recipe {...e} />
+        )}
 
-        <RecipeView 
-          recipe={this.state.recipes.filter(
-            e => e.id === this.state.current
-          )[0]}
-        />
+        <button>Add Recipe</button>
 
       </div>
     );
