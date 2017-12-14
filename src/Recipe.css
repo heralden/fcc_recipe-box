@@ -2,3 +2,22 @@ p {
   white-space: pre-line;
   line-height: 1.6em;
 }
+
+.Recipe-edit {
+  font-family: serif;
+  margin: 1em 0 0 0;
+  padding: 0.2em;
+  background-color: hsl(59, 20%, 90%);
+  border: 0.1em solid hsl(59, 30%, 80%);
+  border-radius: 0.5em;
+  font-size: 1em;
+  line-height: 1.6em;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  box-shadow: hsl(0, 0%, 10%) 0 0.05em 0.15em inset;
+  cursor: auto;
+}
+
+.Recipe-button {
+  margin-bottom: 1em;
+}
