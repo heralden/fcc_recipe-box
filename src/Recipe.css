@@ -6,10 +6,10 @@ p {
 .Recipe-edit {
   font-family: serif;
   margin: 1em 0 0 0;
-  padding: 0.2em;
+  padding: 0.4em;
   background-color: hsl(59, 20%, 90%);
   border: 0.1em solid hsl(59, 30%, 80%);
-  border-radius: 0.5em;
+  border-radius: 0.2em;
   font-size: 1em;
   line-height: 1.6em;
   overflow-wrap: break-word;
@@ -18,6 +18,19 @@ p {
   cursor: auto;
 }
 
-.Recipe-button {
-  margin-bottom: 1em;
+.Icon-button {
+  border: 0;
+  background-color: transparent;
+  color: gray;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin: 0.2em 0 0.4em 0;
+}
+
+.Icon-button:hover {
+  color: black;
+}
+
+.Trash-button {
+  float: right;
 }

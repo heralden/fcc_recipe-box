@@ -58,22 +58,22 @@ class Recipe extends Component {
           </textarea>
 
           <br/>
-          <button className="Recipe-button"
+          <button className="Icon-button"
             onClick={() => this.onUpdateRecipe(
               this.state.content,
               this.props.index
             )}>
-            Save
+            <i className="fa fa-save"/>
           </button>
-          <button className="Recipe-button"
+          <button className="Icon-button"
             onClick={this.onCancel}>
-            X
+            <i className="fa fa-times"/>
           </button>
-          <button className="Recipe-button"
+          <button className="Icon-button Trash-button"
             onClick={() => this.props.deleteRecipe(
               this.props.index
             )}>
-            Del
+            <i className="fa fa-trash"/>
           </button>
         </div>
       );
