@@ -6,14 +6,18 @@ import Recipe from './Recipe';
 class App extends Component {
   constructor(props) {
     super(props);
+
+    const storedState = JSON.parse(
+      localStorage.getItem('recipes')
+    );
     this.state = { 
-      recipes: sample
+      recipes: storedState ? storedState : sample
     };
   }
 
   updateRecipe = (text, index) => {
-    this.setState((prevState) => ({
-      recipes: prevState.recipes.map((e) => {
+    this.setState((prevState) => {
+      const newRecipes = prevState.recipes.map((e) => {
         if (e.id === index) {
           return {
             id: index,
@@ -22,13 +26,16 @@ class App extends Component {
         } else {
           return e;
         }
-      })
-    }));
+      });
+
+      localStorage.setItem('recipes', JSON.stringify(newRecipes));
+      return { recipes: newRecipes };
+    });
   }
 
   newRecipe = () => {
-    this.setState((prevState) => ({
-      recipes: [
+    this.setState((prevState) => {
+      const newRecipes = [
         ...prevState.recipes,
         {
           id: prevState.recipes.reduce(
@@ -36,16 +43,22 @@ class App extends Component {
           ) + 1,
           content: ""
         }
-      ]
-    }));
+      ];
+
+      localStorage.setItem('recipes', JSON.stringify(newRecipes));
+      return { recipes: newRecipes };
+    });
   }
 
   deleteRecipe = (index) => {
-    this.setState((prevState) => ({
-      recipes: prevState.recipes.filter(
+    this.setState((prevState) => {
+      const newRecipes = prevState.recipes.filter(
         (e) => e.id !== index
-      )
-    }));
+      );
+
+      localStorage.setItem('recipes', JSON.stringify(newRecipes));
+      return { recipes: newRecipes };
+    });
   }
 
   render() {
