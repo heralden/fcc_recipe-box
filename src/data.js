@@ -10,7 +10,6 @@ export const sample = [
 1 dl kremfløte
 3 ss smør
 2 ts salt
-0.5 ts pepper
-`
+0.5 ts pepper`
   }
 ];

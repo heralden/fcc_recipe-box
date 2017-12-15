@@ -27,3 +27,7 @@
   font-size: 1em;
   cursor: pointer;
 }
+
+.App > button::-moz-focus-inner {
+    border: 0;
+}

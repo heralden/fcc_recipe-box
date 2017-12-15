@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   updateRecipe = (text, index) => {
-    this.setState((prevState) => {
+    this.setState((prevState) => ({
       recipes: prevState.recipes.map((e) => {
         if (e.id === index) {
           return {
@@ -22,21 +22,46 @@ class App extends Component {
         } else {
           return e;
         }
-      });
-    });
+      })
+    }));
+  }
+
+  newRecipe = () => {
+    this.setState((prevState) => ({
+      recipes: [
+        ...prevState.recipes,
+        {
+          id: prevState.recipes.reduce(
+            (acc, e) => e.id > acc ? e.id : acc, 0
+          ) + 1,
+          content: ""
+        }
+      ]
+    }));
+  }
+
+  deleteRecipe = (index) => {
+    this.setState((prevState) => ({
+      recipes: prevState.recipes.filter(
+        (e) => e.id !== index
+      )
+    }));
   }
 
   render() {
     return (
       <div className="App">
 
-        {this.state.recipes.map((e, i) =>
+        {this.state.recipes.map((e) =>
           <Recipe {...e} key={e.id} index={e.id}
             updateRecipe={this.updateRecipe}
+            deleteRecipe={this.deleteRecipe}
           />
         )}
 
-        <button>Add Recipe</button>
+        <button onClick={this.newRecipe}>
+          Add Recipe
+        </button>
 
       </div>
     );
