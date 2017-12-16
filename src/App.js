@@ -7,9 +7,13 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    const storedState = JSON.parse(
-      localStorage.getItem('recipes')
-    );
+    let storedState;
+    if (localStorage) {
+      storedState = JSON.parse(
+        localStorage.getItem('recipes')
+      );
+    }
+
     this.state = { 
       recipes: storedState ? storedState : sample
     };
@@ -28,7 +32,8 @@ class App extends Component {
         }
       });
 
-      localStorage.setItem('recipes', JSON.stringify(newRecipes));
+      if (localStorage)
+        localStorage.setItem('recipes', JSON.stringify(newRecipes));
       return { recipes: newRecipes };
     });
   }
@@ -45,7 +50,8 @@ class App extends Component {
         }
       ];
 
-      localStorage.setItem('recipes', JSON.stringify(newRecipes));
+      if (localStorage)
+        localStorage.setItem('recipes', JSON.stringify(newRecipes));
       return { recipes: newRecipes };
     });
   }
@@ -56,7 +62,8 @@ class App extends Component {
         (e) => e.id !== index
       );
 
-      localStorage.setItem('recipes', JSON.stringify(newRecipes));
+      if (localStorage)
+        localStorage.setItem('recipes', JSON.stringify(newRecipes));
       return { recipes: newRecipes };
     });
   }
