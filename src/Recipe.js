@@ -11,6 +11,11 @@ class Recipe extends Component {
     };
   }
 
+  componentDidUpdate() {
+    if (this.textarea)
+      this.textarea.focus();
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.content !== nextProps.content)
       this.setState({ content: nextProps.content });
@@ -49,6 +54,7 @@ class Recipe extends Component {
         <div>
           <textarea className="Recipe-edit"
             onChange={this.onChange}
+            ref={(input) => { this.textarea = input; }}
             style={{ height: this.state.height + 'px' }}
             value={this.state.content}>
           </textarea>
