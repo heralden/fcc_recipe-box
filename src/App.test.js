@@ -17,8 +17,6 @@ it('should add a new recipe when clicking the button', () => {
 
 it('should update an existing recipe', () => {
   const wrapper = mount(<App />);
-  const div = wrapper.find('#Recipe-1');
-  div.simulate('click');
   const textarea = wrapper.find('textarea');
   textarea.simulate('change', { target: { value: "foobar" } });
   const button = wrapper.find('.Icon-button').first();

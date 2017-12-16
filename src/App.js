@@ -74,6 +74,7 @@ class App extends Component {
 
         {this.state.recipes.map((e) =>
           <Recipe {...e} key={e.id} index={e.id}
+            editing={e.content.length === 0}
             updateRecipe={this.updateRecipe}
             deleteRecipe={this.deleteRecipe}
           />

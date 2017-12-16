@@ -6,14 +6,20 @@ class Recipe extends Component {
     super(props);
     this.state = {
       content: props.content,
-      editing: false,
-      height: 0
+      editing: props.editing,
+      height: 256
     };
   }
 
-  componentDidUpdate() {
-    if (this.textarea)
+  focusTextarea = () => {
+    if (this.state.editing)
       this.textarea.focus();
+  }
+  componentDidMount() {
+    this.focusTextarea();
+  }
+  componentDidUpdate() {
+    this.focusTextarea();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -68,7 +74,9 @@ class Recipe extends Component {
             <i className="fa fa-save"/>
           </button>
           <button className="Icon-button"
-            onClick={this.onCancel}>
+            onClick={this.props.content.length === 0 ?
+                      () => this.props.deleteRecipe(this.props.index)
+                      : this.onCancel}>
             <i className="fa fa-times"/>
           </button>
           <button className="Icon-button Trash-button"
@@ -83,7 +91,7 @@ class Recipe extends Component {
       let w = null, h = null;
       if (this.state.content.length === 0) {
         w = '10em';
-        h = '20em';
+        h = '16em';
       }
 
       return (
