@@ -38,12 +38,8 @@ class Recipe extends Component {
   }
 
   onClick = (e) => {
-    const height = document.getElementById(
-      "Recipe-" + this.props.index
-    ).clientHeight;
-
     this.setState({ 
-      height: height
+      height: this.recipeDiv.clientHeight
     }, this.toggleEdit);
   }
 
@@ -87,6 +83,7 @@ class Recipe extends Component {
       return (
         <div onClick={this.onClick}
           id={"Recipe-" + this.props.index}
+          ref={(div) => { this.recipeDiv = div; }}
           style={(w && h) ? {
             width: w, height: h 
           } : {}}>
