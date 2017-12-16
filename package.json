@@ -4,9 +4,12 @@
   "private": true,
   "homepage": "http://rubyconn.github.io/fcc_recipe-box",
   "dependencies": {
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "react-test-renderer": "^16.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
